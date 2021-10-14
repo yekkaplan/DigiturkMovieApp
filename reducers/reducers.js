@@ -22,6 +22,7 @@ const INITIAL_STATE = {
 export const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case GET_MOVIES_REQUEST:
+      return {...state};
     case GET_MOVIES_REQUEST_SUCCESS:
       return {...state, movies: action.payload};
     case GET_MOVIES_DETAIL_REQUEST:

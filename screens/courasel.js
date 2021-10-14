@@ -14,7 +14,6 @@ import styles, {colors} from '../styles/index.style';
 import {ENTRIES1, ENTRIES2} from '../static/entries';
 import {scrollInterpolators, animatedStyles} from '../utils/animations';
 
-const IS_ANDROID = Platform.OS === 'android';
 const SLIDER_1_FIRST_ITEM = 1;
 
 export default class CustomCourasel extends Component {
@@ -22,19 +21,12 @@ export default class CustomCourasel extends Component {
     super(props);
     this.state = {
       slider1ActiveSlide: SLIDER_1_FIRST_ITEM,
+      movies: props.movies,
     };
   }
 
-  _renderItem({item, index}) {
-    return <SliderEntry data={item} even={(index + 1) % 2 === 0} />;
-  }
-
   _renderLightItem({item, index}) {
-    return <SliderEntry data={item} even={false} />;
-  }
-
-  _renderDarkItem({item, index}) {
-    return <SliderEntry data={item} even={true} />;
+    return <SliderEntry data={item} />;
   }
 
   layoutExample(number, title, type) {
@@ -52,8 +44,8 @@ export default class CustomCourasel extends Component {
           {title}
         </Text>
         <Carousel
-          data={isTinder ? ENTRIES2 : ENTRIES1}
-          renderItem={isTinder ? this._renderLightItem : this._renderItem}
+          data={this.state.movies}
+          renderItem={this._renderLightItem}
           sliderWidth={sliderWidth}
           itemWidth={itemWidth}
           itemHeight={500}

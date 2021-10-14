@@ -3,40 +3,32 @@ import {View, Text, Image, TouchableOpacity} from 'react-native';
 import PropTypes from 'prop-types';
 import {ParallaxImage} from 'react-native-snap-carousel';
 import styles from '../styles/SliderEntry.style';
+import {BACKDROP_URL} from '../constants/app-constant';
 
 export default class SliderEntry extends Component {
   static propTypes = {
-    data: PropTypes.object.isRequired,
     even: PropTypes.bool,
     parallax: PropTypes.bool,
     parallaxProps: PropTypes.object,
   };
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: props.title,
+      subtitle: props.original_title,
+      image: props.backdrop_path,
+    };
+  }
   get image() {
     const {
-      data: {illustration},
-      parallax,
-      parallaxProps,
-      even,
+      data: {backdrop_path},
     } = this.props;
 
-    return parallax ? (
-      <ParallaxImage
-        source={{uri: illustration}}
-        containerStyle={[
-          styles.imageContainer,
-          even ? styles.imageContainerEven : {},
-        ]}
-        style={styles.image}
-        parallaxFactor={0.35}
-        showSpinner={true}
-        spinnerColor={even ? 'rgba(255, 255, 255, 0.4)' : 'rgba(0, 0, 0, 0.25)'}
-        {...parallaxProps}
-      />
-    ) : (
+    console.info(BACKDROP_URL + backdrop_path);
+    return (
       <Image
         source={{
-          uri: 'https://avatars.githubusercontent.com/u/24531572?v=4',
+          uri: 'https://image.tmdb.org/t/p/w500_and_h282_face' + backdrop_path,
         }}
         style={styles.image}
       />
@@ -45,7 +37,7 @@ export default class SliderEntry extends Component {
 
   render() {
     const {
-      data: {title, subtitle},
+      data: {title, original_title},
       even,
     } = this.props;
 
@@ -53,7 +45,7 @@ export default class SliderEntry extends Component {
       <Text
         style={[styles.title, even ? styles.titleEven : {}]}
         numberOfLines={2}>
-        {title.toUpperCase()}
+        {this.props.data.title}
       </Text>
     ) : (
       false
@@ -83,7 +75,7 @@ export default class SliderEntry extends Component {
           <Text
             style={[styles.subtitle, even ? styles.subtitleEven : {}]}
             numberOfLines={2}>
-            {subtitle}
+            {original_title}
           </Text>
         </View>
       </TouchableOpacity>
