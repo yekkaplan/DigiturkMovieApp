@@ -7,7 +7,7 @@ const API_KEY = '7fe2e00520afd0761911e423d577c7db';
 const LANGUAGE = 'tr-TR';
 const DIGITURK_IMAGE = 'https://www.digiturk.com.tr/assets/img/logo-red.png';
 const PRIMARY_COLOR = '#f8edeb';
-const BACKDROP_URL = 'https://image.tmdb.org/t/p/w500_and_h282_face';
+const BACKDROP_URL = 'http://image.tmdb.org/t/p/w500_and_h282_face';
 const ACCENT_COLOR = '#f1faee';
 
 export {

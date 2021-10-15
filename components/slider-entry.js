@@ -28,7 +28,7 @@ export default class SliderEntry extends Component {
     return (
       <Image
         source={{
-          uri: 'https://image.tmdb.org/t/p/w500_and_h282_face' + backdrop_path,
+          uri: BACKDROP_URL + backdrop_path,
         }}
         style={styles.image}
       />

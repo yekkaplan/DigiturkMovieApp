@@ -1,18 +1,9 @@
 import React, {Component} from 'react';
-import {
-  Platform,
-  View,
-  ScrollView,
-  Text,
-  StatusBar,
-  SafeAreaView,
-} from 'react-native';
-import Carousel, {Pagination} from 'react-native-snap-carousel';
+import {View, Text} from 'react-native';
+import Carousel from 'react-native-snap-carousel';
 import {sliderWidth, itemWidth} from '../styles/SliderEntry.style';
 import SliderEntry from '../components/slider-entry';
-import styles, {colors} from '../styles/index.style';
-import {ENTRIES1, ENTRIES2} from '../static/entries';
-import {scrollInterpolators, animatedStyles} from '../utils/animations';
+import styles from '../styles/index.style';
 
 const SLIDER_1_FIRST_ITEM = 1;
 
@@ -26,7 +17,7 @@ export default class CustomCourasel extends Component {
   }
 
   _renderLightItem({item, index}) {
-    return <SliderEntry data={item} />;
+    return <SliderEntry data={item} even={false} />;
   }
 
   layoutExample(number, title, type) {
