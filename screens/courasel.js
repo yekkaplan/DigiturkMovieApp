@@ -39,8 +39,6 @@ export default class CustomCourasel extends Component {
           renderItem={this._renderLightItem}
           sliderWidth={sliderWidth}
           itemWidth={itemWidth}
-          itemHeight={500}
-          sliderHeight={1000}
           containerCustomStyle={styles.slider}
           contentContainerCustomStyle={styles.sliderContentContainer}
           layout={type}

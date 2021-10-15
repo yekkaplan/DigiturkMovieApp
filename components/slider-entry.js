@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import {ParallaxImage} from 'react-native-snap-carousel';
 import styles from '../styles/SliderEntry.style';
 import {BACKDROP_URL} from '../constants/app-constant';
+import {useNavigation} from '@react-navigation/native';
 
 export default class SliderEntry extends Component {
   static propTypes = {
@@ -51,12 +52,14 @@ export default class SliderEntry extends Component {
       false
     );
 
+    const navigation = useNavigation();
+
     return (
       <TouchableOpacity
         activeOpacity={1}
         style={styles.slideInnerContainer}
         onPress={() => {
-          alert(`You've clicked '${title}'`);
+          navigation.navigate('MovieDetail');
         }}>
         <View style={styles.shadow} />
         <View
