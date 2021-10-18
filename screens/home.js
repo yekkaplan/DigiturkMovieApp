@@ -8,7 +8,6 @@ import {getMovies} from '../actions/action';
 import CustomCourasel from './courasel';
 
 const Home = props => {
-  const errorMessage = useSelector(state => state.errorMessage);
   const movies = useSelector(state => state.movies);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -17,10 +16,11 @@ const Home = props => {
 
   return (
     <View style={styles.container}>
-      <AppBar />
-
       {movies.results != undefined ? (
-        <CustomCourasel movies={props.movies.results} />
+        <CustomCourasel
+          movies={props.movies.results}
+          navigation={props.navigation}
+        />
       ) : (
         <Text> Yükleniyor</Text>
       )}

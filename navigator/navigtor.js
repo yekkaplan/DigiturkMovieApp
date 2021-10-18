@@ -13,7 +13,11 @@ function MyStack() {
         component={Home}
         options={{title: 'En iyi Filmler!'}}
       />
-      <Stack.Screen name="MovieDetail" component={MovieDetail} />
+      <Stack.Screen
+        name="MovieDetail"
+        component={MovieDetail}
+        options={{title: 'Detay'}}
+      />
     </Stack.Navigator>
   );
 }

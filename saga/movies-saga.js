@@ -23,7 +23,6 @@ function* getMovieList() {
       ? yield put(getMoviesFailed(data.payload))
       : yield put(getMoviesSuccess(data.payload));
   } catch (error) {
-    console.info(error);
     yield put(getMoviesFailed(error));
   }
 }

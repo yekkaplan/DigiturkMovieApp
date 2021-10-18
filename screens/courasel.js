@@ -13,10 +13,11 @@ export default class CustomCourasel extends Component {
     this.state = {
       slider1ActiveSlide: SLIDER_1_FIRST_ITEM,
       movies: props.movies,
+      navigation: props.navigation,
     };
   }
 
-  _renderLightItem({item, index}) {
+  _renderLightItem(item, navigation) {
     return <SliderEntry data={item} even={false} />;
   }
 
@@ -36,7 +37,15 @@ export default class CustomCourasel extends Component {
         </Text>
         <Carousel
           data={this.state.movies}
-          renderItem={this._renderLightItem}
+          renderItem={({item, index}) => {
+            return (
+              <SliderEntry
+                data={item}
+                even={false}
+                navigation={this.state.navigation}
+              />
+            );
+          }}
           sliderWidth={sliderWidth}
           itemWidth={itemWidth}
           containerCustomStyle={styles.slider}

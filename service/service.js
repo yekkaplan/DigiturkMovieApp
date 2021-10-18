@@ -37,7 +37,6 @@ export const getMoviesFromAPI = async () => {
  * @returns  -
  */
 export const getMovieDetailFromAPI = paramId => {
-  console.info(paramId);
   var response = axios
     .get(
       'https://api.themoviedb.org/3/movie/' +
