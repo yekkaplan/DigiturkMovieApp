@@ -56,7 +56,7 @@ export default class SliderEntry extends Component {
         activeOpacity={1}
         style={styles.slideInnerContainer}
         onPress={() => {
-          navigation.navigate('MovieDetail');
+          navigation.navigate('MovieDetail', {movies: this.props.data});
         }}>
         <View style={styles.shadow} />
         <View
